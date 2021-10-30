@@ -8,7 +8,7 @@ export class AppService {
   async getAllAndFilter() {
     const totalNumbersArray = [];
     const arrayPagesWithError = [];
-    let page = 9990;
+    let page = 1;
     let hasNumbers = true;
     let arrayNumbers = [];
     let numberOfCalls = 0;
