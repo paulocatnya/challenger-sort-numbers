@@ -1,30 +1,30 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
+ 
 ## Description
-
+ 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+In this small project / challenge, I seek to demonstrate:
+
+1 - Make several http requests to an endpoint that returns numbers.
+
+2 - Save the numbers that were returned
+
+3 - Sort all numbers, without the sort method of JS
+
+4 - Make the numbers available on an endpoint.
+
+Observation:
+Starting from page 1 will go to page 1000, which will result in 1 million numbers since each page has 100 numbers.
+When I finish, the requests that failed will be exposed in the key: pagesCalledWithError, so we will know the specific pages that broke and can then redo those specific requests.
+
+
+## Tools used:
+
+- NestJS backend
+
+- Axios for requests.
+
+- Bubble sort algorithm
+
 
 ## Installation
 
@@ -36,38 +36,22 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn dev
 
 # production mode
-$ npm run start:prod
+$ yarn run start:prod
 ```
 
-## Test
+## App in use
 
-```bash
-# unit tests
-$ npm run test
+The API will run on port 5000, to see the return just make a call in some app like Postman for example and will have all the numbers sorted.
+Note: If you want to test faster, you can change the home page number putting something close to 10000 (which is the last page with a return)
 
-# e2e tests
-$ npm run test:e2e
+![2021-10-30-16-06-03](https://user-images.githubusercontent.com/41118230/139555712-fe2a6611-ec50-496b-80fc-7e4d6ac33ee8.gif)
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+ 
+In the example above, I make requests from page 9900, up to 10001 which is when it doesn't return any more numbers.
+101 requests, being 101 returns with 100 numbers each, a total of 10100 numbers returned and sorted.
